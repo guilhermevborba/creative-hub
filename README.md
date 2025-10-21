@@ -15,7 +15,7 @@ Uma pesquisa de campo mostrou que **100% dos profissionais entrevistados utiliza
 O sistema foi projetado para oferecer um fluxo de trabalho completo, da concepção à análise:
 
 *   **📅 Gestão de Projetos e Calendário Integrado:** Crie projetos, defina prazos e visualize todas as suas atividades em um calendário interativo e coeso.
-*   **💡 Fluxo de Conteúdo Completo (Kanban):** Gerencie suas tarefas em um quadro Kanban visual, guiando o conteúdo desde o *brain dump* (caixa de ideias) até as etapas de `Rascunho`, `Revisão`, `Publicado` e `Performance`.
+*   **💡 Fluxo de Conteúdo Completo (Kanban):** Gerencie suas tarefas em um quadro Kanban visual, guiando o conteúdo desde o *brain dump* (caixa de ideias) até as etapas de `Ideias`, `Revisão`, `Publicado`.
 *   **🤖 Templates Inteligentes:** Modelos prontos com checklists e tutoriais para diferentes formatos de conteúdo (posts, roteiros de vídeos, etc.), diminuindo a ansiedade de "começar do zero".
 *   **📊 Dashboard de Métricas Simplificado:** Acompanhe o volume de posts, o engajamento e o "desempenho excedente" (o quanto você produziu além da meta), focando no retorno sobre o tempo investido.
 *   **📚 Banco de Referências Criativas:** Um espaço para salvar e organizar inspirações (links, imagens, anotações) com um sistema de tags para fácil acesso.
@@ -26,7 +26,7 @@ Este projeto foi desenvolvido com uma stack moderna baseada em JavaScript, visan
 
 *   **Frontend:** React.js
 *   **Backend:** Node.js
-*   **Banco de Dados:** Firebase (Cloud Database)
+*   **Banco de Dados:** Supabase (PostgreSQL)
 *   **Versionamento:** Git & GitHub
 
 A gestão do projeto segue a metodologia ágil **Scrum**, com as tarefas organizadas em um quadro Kanban no Jira.
