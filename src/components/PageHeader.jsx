@@ -1,25 +1,47 @@
-import React from 'react';
-import { Search, User } from 'lucide-react';
+import React from "react";
+import { Plus } from "lucide-react";
+import { motion } from "framer-motion";
 
-const PageHeader = ({ title, actionButton }) => {
-    return (
-        <header className="flex justify-between items-center h-16 bg-white border-b border-gray-200 px-6 fixed top-0 right-0 z-10" style={{ marginLeft: '256px', width: 'calc(100% - 256px)' }}>
-            
-            <h1 className="text-2xl font-semibold text-gray-800">
-                {title}
-            </h1>
+const PageHeader = ({ title, subtitle, actionButton }) => {
+  return (
+    <header
+      className="fixed top-0 left-64 bg-white h-24 px-10 flex items-center justify-between border-b border-gray-200 shadow-sm z-30"
+      style={{ width: "calc(100% - 256px)" }}
+    >
+      <div className="flex flex-col">
+        <motion.h1
+          className="text-3xl font-bold text-gray-900 tracking-tight"
+          initial={{ opacity: 0, y: -8 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4 }}
+        >
+          {title}
+        </motion.h1>
 
-            {actionButton && <div className="ml-auto">{actionButton}</div>}
+        {subtitle && (
+          <motion.p
+            className="text-sm text-gray-500 mt-1"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.1, duration: 0.4 }}
+          >
+            {subtitle}
+          </motion.p>
+        )}
+      </div>
 
-            <div className="flex items-center space-x-6 ml-10">
-                <Search className="w-5 h-5 text-gray-500 cursor-pointer hover:text-gray-700" />
-                <div className="flex items-center space-x-2 cursor-pointer">
-                    <User className="w-5 h-5 text-gray-500" />
-                    <span className="text-sm font-medium text-gray-700">Admin</span>
-                </div>
-            </div>
-        </header>
-    );
+      {actionButton && (
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 0.15, duration: 0.3 }}
+          className="flex items-center gap-2"
+        >
+          {actionButton}
+        </motion.div>
+      )}
+    </header>
+  );
 };
 
 export default PageHeader;
