@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Link, useLocation } from 'react-router-dom'; 
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { supabase } from "../utils/supabase";
 import { 
     LayoutDashboard, 
     FolderOpen, 
@@ -26,10 +27,24 @@ const ACTIVE_COLOR_CLASSES = "bg-indigo-100 text-indigo-700 font-bold border-r-4
 const Sidebar = () => {
     const [openMenu, setOpenMenu] = useState(null); 
     const location = useLocation(); 
+    const navigate = useNavigate();
+
+    const handleLogout = async () => {
+        try {
+            const { error } = await supabase.auth.signOut();
+            
+            if (error) {
+                console.error("Erro ao fazer logout:", error.message);
+            } else {
+                navigate("/"); 
+            }
+        } catch (error) {
+            console.error("Erro inesperado no logout:", error);
+        }
+    };
 
     const NavItem = ({ link }) => {
         const isActive = location.pathname === link.path;
-        
         const isDashboardActive = link.path === "/" && location.pathname === "/"; 
         
         const itemClass = isActive || isDashboardActive
@@ -71,7 +86,10 @@ const Sidebar = () => {
                     <HelpCircle className="w-5 h-5 mr-3" />
                     Ajuda
                 </Link>
-                <button className="flex items-center w-full p-3 text-sm font-medium text-red-500 rounded-lg transition duration-150 hover:bg-red-50 hover:text-red-600">
+                <button 
+                    onClick={handleLogout} 
+                    className="flex items-center w-full p-3 text-sm font-medium text-red-500 rounded-lg transition duration-150 hover:bg-red-50 hover:text-red-600"
+                >
                     <LogOut className="w-5 h-5 mr-3" />
                     Sair
                 </button>
