@@ -33,4 +33,4 @@ A gestão do projeto segue a metodologia ágil **Scrum**, com as tarefas organiz
 
 ## 🧪 Testes e Validação
 
-A qualidade da solução é garantida através de testes de usabilidade com usuários reais, focando em critérios como eficiência, intuitividade e satisfação geral do usuário. O objetivo é entregar uma experiência de usuário (UX) que torne um sistema complexo em algo simples e prazeroso de usar.
+A qualidade da solução é garantida através de testes de usabilidade com usuários reais, focando em critérios como eficiência e intuitividade do usuário. O objetivo é entregar uma experiência de usuário (UX) que torne um sistema complexo em algo simples de usar.
