@@ -37,30 +37,30 @@ const LoginPage = () => {
     };
     
     const handleResetPassword = async (e) => {
-        e.preventDefault();
-        setErro("");
-        setMensagemSucesso("");
+    e.preventDefault();
+    setErro("");
+    setMensagemSucesso("");
+    
+    if (!email) {
+        setErro("Por favor, insira seu email para redefinir a senha.");
+        return;
+    }
+
+    setLoading(true);
+    try {
+        const { error } = await supabase.auth.resetPasswordForEmail(email, {
+            redirectTo: window.location.origin + '/reset-password',
+        });
+
+        if (error) throw error;
         
-        if (!email) {
-            setErro("Por favor, insira seu email para redefinir a senha.");
-            return;
-        }
-
-        setLoading(true);
-        try {
-            const { error } = await supabase.auth.resetPasswordForEmail(email, {
-                redirectTo: window.location.origin + '/reset-password', 
-            });
-
-            if (error) throw error;
-            
-            setMensagemSucesso("Link de recuperação enviado para seu email!");
-        } catch (error) {
-            setErro("Erro ao enviar link. Verifique o email digitado.");
-        } finally {
-            setLoading(false);
-        }
-    };
+        setMensagemSucesso("Link de recuperação enviado para seu email!");
+    } catch (error) {
+        setErro("Erro ao enviar link. Verifique o email digitado.");
+    } finally {
+        setLoading(false);
+    }
+};
 
     return (
         <div className="min-h-screen bg-gray-50 flex flex-col justify-center items-center py-12 px-4 sm:px-6 lg:px-8">

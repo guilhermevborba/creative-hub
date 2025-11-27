@@ -8,6 +8,8 @@ import KanbanPage from './pages/KanbanPage';
 import CalendarioPage from './pages/CalendarioPage';
 import ProjetosPage from "./pages/ProjetosPage"; 
 import DashboardPage from "./pages/DashboardPage";
+import ResetPasswordPage from "./pages/ResetPasswordPage";
+
 
 
 function AppWrapper() {
@@ -50,6 +52,8 @@ function AppWrapper() {
                         <Route path="/kanban" element={<KanbanPage />} />
                         <Route path="/calendario" element={<CalendarioPage />} />
                         <Route path="/dashboard" element={<DashboardPage/>}/>
+                        <Route path="/reset-password" element={<ResetPasswordPage />} />
+
                     </Routes>
                 </div>
             </main>

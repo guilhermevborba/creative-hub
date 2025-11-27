@@ -167,8 +167,9 @@ function KanbanPage() {
     return (
         <>
             <PageHeader title="Planejamento de conteúdos" />
+            <div className="mt-20 pb-10 px-8 w-full overflow-x-hidden bg-gray-50">
 
-            <div className="mt-20 pb-10 px-8 w-full"> 
+    
                 
                 {plataformas.length > 0 && (
                     <div className="flex items-center space-x-3 mb-6 bg-white/80 backdrop-blur-sm p-4 rounded-2xl shadow-md border border-gray-200">
@@ -199,19 +200,20 @@ function KanbanPage() {
                 )}
                 
                 {colunas.length > 0 ? (
-                    <DragDropContext onDragEnd={onDragEnd}>
-                        <div className="flex overflow-x-auto pb-4 space-x-6 h-[calc(100vh-220px)]">
-                            
-                            {tarefasAgrupadas.map((coluna) => (
-                                <KanbanColuna
-                                    key={coluna.id}
-                                    coluna={coluna}
-                                    handleOpenModal={handleOpenModal}
-                                />
-                            ))}
-                            
-                        </div>
-                    </DragDropContext>
+                    <div className="bg-gray-50 p-4 rounded-2xl">
+                        <DragDropContext onDragEnd={onDragEnd}>
+                            <div className="flex overflow-x-auto pt-4 pb-4 space-x-6 h-[calc(100vh-250px)] bg-gray-50 rounded-xl">  
+                                {tarefasAgrupadas.map((coluna) => (
+                                    <KanbanColuna
+                                        key={coluna.id}
+                                        coluna={coluna}
+                                        handleOpenModal={handleOpenModal}
+                                    />
+                                ))}
+                                
+                            </div>
+                        </DragDropContext>
+                    </div>    
                 ) : (
                     <div className="text-center p-10 bg-white rounded-lg shadow-md border border-gray-200">
                         <p className="text-lg text-gray-500">Sua estrutura de Kanban está sendo inicializada. Por favor, aguarde.</p>
@@ -299,3 +301,4 @@ const KanbanCard = ({ tarefa }) => {
         </div>
     );
 };
+

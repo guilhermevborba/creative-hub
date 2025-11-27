@@ -4,9 +4,9 @@ import PageHeader from "../components/PageHeader";
 import EdicaoTarefaModal from "../components/EdicaoTarefaModal";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import moment from "moment";
+import "moment/dist/locale/pt-br";
 import { motion } from "framer-motion";
 
-import "moment/locale/pt-br";
 moment.locale("pt-br"); 
 
 function CalendarioPage() {
@@ -37,11 +37,8 @@ function CalendarioPage() {
         const [configRes, tarefasRes] = await Promise.all([
             Promise.all([
                 supabase.from("colunas_kanban").select('id, nome').eq("criador_id", currentUserId), 
-                
                 supabase.from("tipos_conteudo").select('id, nome'),
-                
                 supabase.from("plataformas").select('id, nome'),
-                
                 supabase.from("formatos").select('*'),
             ]),
             supabase
@@ -89,6 +86,7 @@ function CalendarioPage() {
 
     const renderCalendario = () => {
         const inicioDaSemana = mesAtual.clone().startOf("month").startOf("week");
+
         const dias = [];
         
         const diasSemanaPT = ['DOMINGO', 'SEGUNDA', 'TERÇA', 'QUARTA', 'QUINTA', 'SEXTA', 'SÁBADO'];
@@ -139,7 +137,6 @@ function CalendarioPage() {
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.4 }}
             >
-                
                 <div className="flex justify-between items-center mb-6">
                     <button
                         onClick={() => setMesAtual(mesAtual.clone().subtract(1, "month"))}
@@ -148,7 +145,7 @@ function CalendarioPage() {
                         <ArrowLeft className="w-6 h-6" />
                     </button>
                     <h2 className="text-3xl font-extrabold text-gray-900 tracking-tight">
-                        {mesAtual.clone().locale('pt-br').format("MMMM YYYY").toUpperCase()}
+                        {mesAtual.clone().locale('pt-br').format("MMMM [de] YYYY").toUpperCase()}
                     </h2>
                     <button
                         onClick={() => setMesAtual(mesAtual.clone().add(1, "month"))}
@@ -173,13 +170,13 @@ function CalendarioPage() {
         );
     };
 
-
     return (
         <>
             <PageHeader
                 title="Calendário"
             />
             <div className="mt-24 pb-10 px-8 w-full">{renderCalendario()}</div>
+
 
             <EdicaoTarefaModal
                 isOpen={isModalOpen}
