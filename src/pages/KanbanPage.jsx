@@ -217,7 +217,6 @@ function KanbanPage() {
                 ) : (
                     <div className="text-center p-10 bg-white rounded-lg shadow-md border border-gray-200">
                         <p className="text-lg text-gray-500">Sua estrutura de Kanban está sendo inicializada. Por favor, aguarde.</p>
-                        <p className="text-sm text-gray-400 mt-2">Isso só acontece no primeiro login.</p>
                     </div>
                 )}
             </div>
@@ -301,4 +300,3 @@ const KanbanCard = ({ tarefa }) => {
         </div>
     );
 };
-

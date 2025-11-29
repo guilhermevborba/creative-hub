@@ -93,8 +93,8 @@ function CalendarioPage() {
 
         if (colunas.length === 0) {
             return (
-                <div className="bg-white p-8 rounded-xl shadow-lg border border-gray-200 text-center mt-8">
-                    <p className="text-gray-600 font-medium">Nenhum dado encontrado. Por favor, crie suas colunas e plataformas.</p>
+                <div className="text-center p-10 bg-white rounded-lg shadow-md border border-gray-200">
+                    <p className="text-lg text-gray-500">Seu calendário está sendo inicializado. Por favor, aguarde.</p>
                 </div>
             );
         }
