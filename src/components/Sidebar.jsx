@@ -14,7 +14,7 @@ import {
 
 const links = [
     { path: "/", name: "Dashboard", icon: LayoutDashboard },
-    { path: "/projetos", name: "Projetos", icon: FolderOpen },
+    // { path: "/projetos", name: "Projetos", icon: FolderOpen },
     { path: "/criar", name: "Ideias", icon: Lightbulb },
     { path: "/kanban", name: "Kanban", icon: SquareKanban},
     { path: "/calendario", name: "Calendário", icon: Calendar },
@@ -82,10 +82,6 @@ const Sidebar = () => {
             </nav>
             
             <div className="mt-auto border-t border-gray-200 pt-4 space-y-1">
-                <Link to="/ajuda" className="flex items-center p-3 text-sm font-medium text-gray-600 hover:bg-gray-50 hover:text-gray-800 transition duration-150">
-                    <HelpCircle className="w-5 h-5 mr-3" />
-                    Ajuda
-                </Link>
                 <button 
                     onClick={handleLogout} 
                     className="flex items-center w-full p-3 text-sm font-medium text-red-500 rounded-lg transition duration-150 hover:bg-red-50 hover:text-red-600"
