@@ -61,6 +61,22 @@ const EdicaoTarefaModal = ({ isOpen, onClose, tarefa, colunas, tipos, plataforma
             onClose(); 
         }
     };
+
+    const handleAcaoDeletar = async () => {
+        if (!formData.id) return;
+
+        const result = await supabase
+            .from('tarefas')
+            .delete()
+            .eq('id', formData.id);
+
+        if (result.error) {
+            console.error("Erro ao excluir tarefa:", result.error.message);
+        } else {
+            onUpdate();
+            onClose();
+        }
+    };
     
     if (!isOpen || !formData.status_id) return null; 
 
@@ -179,6 +195,15 @@ const EdicaoTarefaModal = ({ isOpen, onClose, tarefa, colunas, tipos, plataforma
                                 >
                                     Cancelar
                                 </button>
+                                {!isCreating && (
+                                <button
+                                    type="button"
+                                    onClick={handleAcaoDeletar}
+                                    className="px-4 py-2 text-sm font-medium text-white bg-red-600 rounded-lg hover:bg-red-700 transition"
+                                >
+                                    Excluir
+                                </button>
+                                 )}
                                 <button
                                     type="submit"
                                     className={`px-4 py-2 text-sm font-medium text-white rounded-lg transition ${isCreating ? 'bg-indigo-600 hover:bg-indigo-700' : 'bg-green-600 hover:bg-green-700'}`}

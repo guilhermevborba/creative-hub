@@ -91,13 +91,13 @@ function CalendarioPage() {
         
         const diasSemanaPT = ['DOMINGO', 'SEGUNDA', 'TERÇA', 'QUARTA', 'QUINTA', 'SEXTA', 'SÁBADO'];
 
-        if (colunas.length === 0) {
-            return (
-                <div className="text-center p-10 bg-white rounded-lg shadow-md border border-gray-200">
-                    <p className="text-lg text-gray-500">Seu calendário está sendo inicializado. Por favor, aguarde.</p>
-                </div>
-            );
-        }
+        // if (colunas.length === 0) {
+        //     return (
+        //         <div className="text-center p-10 bg-white rounded-lg shadow-md border border-gray-200">
+        //             <p className="text-lg text-gray-500">Seu calendário está sendo inicializado. Por favor, aguarde.</p>
+        //         </div>
+        //     );
+        // }
 
         for (let i = 0; i < 42; i++) {
             const dia = inicioDaSemana.clone().add(i, "days");
